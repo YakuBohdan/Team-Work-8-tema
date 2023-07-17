@@ -96,3 +96,23 @@ int main() {
             printApartment(kievApartments[i]);
         }
     }
+    printf("Квартири у Львові:\n");
+    for (int i = 0; i < numOfLvivApartments; i++) {
+        if (lvivApartments[i].roomCount == desiredRoomCount &&
+            lvivApartments[i].floor == desiredFloor &&
+            lvivApartments[i].rentPrice <= desiredRentPrice) {
+            printApartment(lvivApartments[i]);
+        }
+    }
+
+    printf("Квартири в Одесі:\n");
+    for (int i = 0; i < numOfOdessaApartments; i++) {
+        if (odessaApartments[i].roomCount == desiredRoomCount &&
+            odessaApartments[i].floor == desiredFloor &&
+            odessaApartments[i].rentPrice <= desiredRentPrice) {
+            printApartment(odessaApartments[i]);
+        }
+    }
+
+    return 0;
+}
