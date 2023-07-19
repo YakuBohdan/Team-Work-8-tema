@@ -24,7 +24,7 @@ void printApartment(Apartment apt) {
 
 int main() {
     // База даних квартир
-    Apartment kievApartments[] = {
+    Apartment kyivApartments[] = {
         createApartment(1, 1, 12000.0),
         createApartment(2, 1, 14500.0),
         createApartment(3, 1, 1800.0),
