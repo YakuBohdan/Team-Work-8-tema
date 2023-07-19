@@ -96,6 +96,11 @@ int main() {
     };
     int numOfOdesaApartments = sizeof(odesaApartments) / sizeof(odesaApartments[0]);
 
+    // Замовлення
+    Order currentOrder;
+    Order orderHistory[100];
+    int numOfOrders = 0;
+    
     // Вибірка квартир за критеріями
     int desiredRoomCount;
     int desiredFloor;
