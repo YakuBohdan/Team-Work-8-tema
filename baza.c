@@ -53,7 +53,7 @@ int main() {
     };
     int numOfLvivApartments = sizeof(lvivApartments) / sizeof(lvivApartments[0]);
 
-    Apartment odessaApartments[] = {
+    Apartment odesaApartments[] = {
         createApartment(1, 1, 12000.0),
         createApartment(2, 1, 14500.0),
         createApartment(3, 1, 1800.0),
@@ -70,7 +70,7 @@ int main() {
         createApartment(2, 4, 15000.0),
         createApartment(3, 9, 21000.0)
     };
-    int numOfOdessaApartments = sizeof(odessaApartments) / sizeof(odessaApartments[0]);
+    int numOfOdesaApartments = sizeof(odesaApartments) / sizeof(odesaApartments[0]);
 
     // Вибірка квартир за критеріями
     int desiredRoomCount;
