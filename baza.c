@@ -180,3 +180,37 @@ int main() {
                 }
 
                 break;
+        case 2:
+                // Перегляд поточного замовлення
+                if (currentOrder.apartmentIndex >= 0 && currentOrder.apartmentIndex < numOfKievApartments) {
+                    printf("Поточне замовлення:\n");
+                    printOrder(currentOrder, kievApartments, numOfKievApartments);
+                } else {
+                    printf("Немає поточного замовлення.\n");
+                }
+
+                break;
+            case 3:
+                // Перегляд історії замовлень
+                if (numOfOrders > 0) {
+                    printf("Історія замовлень:\n");
+                    for (int i = 0; i < numOfOrders; i++) {
+                        printf("\nЗамовлення %d:\n", i + 1);
+                        printOrder(orderHistory[i], kievApartments, numOfKievApartments);
+                    }
+                } else {
+                    printf("Історія замовлень порожня.\n");
+                }
+
+                break;
+            case 0:
+                printf("Дякуємо за використання програми. До побачення!\n");
+                break;
+            default:
+                printf("Невірний вибір. Спробуйте ще раз.\n");
+                break;
+        }
+    } while (choice != 0);
+
+    return 0;
+}                
