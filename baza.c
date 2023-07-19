@@ -157,3 +157,26 @@ int main() {
                         printApartment(odessaApartments[i]);
                     }
                 }
+
+  // Вибір квартири для замовлення
+                printf("\nВведіть індекс квартири для замовлення (або -1 для скасування): ");
+                scanf("%d", &currentOrder.apartmentIndex);
+
+                if (currentOrder.apartmentIndex >= 0 && currentOrder.apartmentIndex < numOfKievApartments) {
+                    // Збереження деталей замовлення
+                    printf("Введіть місто для замовлення: ");
+                    scanf("%s", currentOrder.city);
+                    currentOrder.roomCount = desiredRoomCount;
+                    currentOrder.floor = desiredFloor;
+                    currentOrder.maxRentPrice = desiredRentPrice;
+
+                    // Додавання замовлення до історії
+                    orderHistory[numOfOrders] = currentOrder;
+                    numOfOrders++;
+
+                    printf("Замовлення розміщено.\n");
+                } else {
+                    printf("Замовлення скасовано.\n");
+                }
+
+                break;
