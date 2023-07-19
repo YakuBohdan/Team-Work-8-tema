@@ -24,7 +24,7 @@ void printApartment(Apartment apt) {
 
 int main() {
     // База даних квартир
-    Apartment kievApartments[] = {
+    Apartment kyivApartments[] = {
         createApartment(1, 1, 12000.0),
         createApartment(2, 1, 14500.0),
         createApartment(3, 1, 1800.0),
@@ -35,7 +35,7 @@ int main() {
         createApartment(2, 3, 16000.0),
         createApartment(3, 3, 19000.0)
     };
-    int numOfKievApartments = sizeof(kievApartments) / sizeof(kievApartments[0]);
+    int numOfKyivApartments = sizeof(kyivApartments) / sizeof(kyivApartments[0]);
 
     Apartment lvivApartments[] = {
         createApartment(1, 1, 12000.0),
@@ -53,7 +53,7 @@ int main() {
     };
     int numOfLvivApartments = sizeof(lvivApartments) / sizeof(lvivApartments[0]);
 
-    Apartment odessaApartments[] = {
+    Apartment odesaApartments[] = {
         createApartment(1, 1, 12000.0),
         createApartment(2, 1, 14500.0),
         createApartment(3, 1, 1800.0),
@@ -70,7 +70,7 @@ int main() {
         createApartment(2, 4, 15000.0),
         createApartment(3, 9, 21000.0)
     };
-    int numOfOdessaApartments = sizeof(odessaApartments) / sizeof(odessaApartments[0]);
+    int numOfOdesaApartments = sizeof(odesaApartments) / sizeof(odesaApartments[0]);
 
     // Вибірка квартир за критеріями
     int desiredRoomCount;
@@ -89,10 +89,10 @@ int main() {
     // Пошук та виведення квартир, що задовольняють вказані критерії
     printf("Результати пошуку:\n");
     printf("Квартири в Києві:\n");
-    for (int i = 0; i < numOfKievApartments; i++) {
-        if (kievApartments[i].roomCount == desiredRoomCount &&
-            kievApartments[i].floor == desiredFloor &&
-            kievApartments[i].rentPrice <= desiredRentPrice) {
+    for (int i = 0; i < numOfKyivvApartments; i++) {
+        if (kyivvApartments[i].roomCount == desiredRoomCount &&
+            kyivApartments[i].floor == desiredFloor &&
+            kyivApartments[i].rentPrice <= desiredRentPrice) {
             printApartment(kievApartments[i]);
         }
     }
@@ -106,11 +106,11 @@ int main() {
     }
 
     printf("Квартири в Одесі:\n");
-    for (int i = 0; i < numOfOdessaApartments; i++) {
-        if (odessaApartments[i].roomCount == desiredRoomCount &&
-            odessaApartments[i].floor == desiredFloor &&
-            odessaApartments[i].rentPrice <= desiredRentPrice) {
-            printApartment(odessaApartments[i]);
+    for (int i = 0; i < numOfOdesaApartments; i++) {
+        if (odesaApartments[i].roomCount == desiredRoomCount &&
+            odesaApartments[i].floor == desiredFloor &&
+            odesaApartments[i].rentPrice <= desiredRentPrice) {
+            printApartment(odesaApartments[i]);
         }
     }
 
