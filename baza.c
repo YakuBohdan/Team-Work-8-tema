@@ -106,42 +106,26 @@ int main() {
     int desiredFloor;
     float desiredRentPrice;
 
-    printf("Введіть бажану кількість кімнат: ");
-    scanf("%d", &desiredRoomCount);
+    // Користувацьке меню
+    int choice;
+    do {
+        printf("\n-------------------------\n");
+        printf("Меню:\n");
+        printf("1. Зробити нове замовлення\n");
+        printf("2. Переглянути поточне замовлення\n");
+        printf("3. Переглянути історію замовлень\n");
+        printf("0. Вийти з програми\n");
+        printf("Ваш вибір: ");
+        scanf("%d", &choice);
 
-    printf("Введіть бажаний поверх: ");
-    scanf("%d", &desiredFloor);
+        switch (choice) {
+            case 1:
+                // Введення критеріїв замовлення
+                printf("Введіть бажану кількість кімнат: ");
+                scanf("%d", &desiredRoomCount);
 
-    printf("Введіть максимальну ціну оренди: ");
-    scanf("%f", &desiredRentPrice);
+                printf("Введіть бажаний поверх: ");
+                scanf("%d", &desiredFloor);
 
-    // Пошук та виведення квартир, що задовольняють вказані критерії
-    printf("Результати пошуку:\n");
-    printf("Квартири в Києві:\n");
-    for (int i = 0; i < numOfKyivvApartments; i++) {
-        if (kyivvApartments[i].roomCount == desiredRoomCount &&
-            kyivApartments[i].floor == desiredFloor &&
-            kyivApartments[i].rentPrice <= desiredRentPrice) {
-            printApartment(kievApartments[i]);
-        }
-    }
-    printf("Квартири у Львові:\n");
-    for (int i = 0; i < numOfLvivApartments; i++) {
-        if (lvivApartments[i].roomCount == desiredRoomCount &&
-            lvivApartments[i].floor == desiredFloor &&
-            lvivApartments[i].rentPrice <= desiredRentPrice) {
-            printApartment(lvivApartments[i]);
-        }
-    }
-
-    printf("Квартири в Одесі:\n");
-    for (int i = 0; i < numOfOdesaApartments; i++) {
-        if (odesaApartments[i].roomCount == desiredRoomCount &&
-            odesaApartments[i].floor == desiredFloor &&
-            odesaApartments[i].rentPrice <= desiredRentPrice) {
-            printApartment(odesaApartments[i]);
-        }
-    }
-
-    return 0;
-}
+                printf("Введіть максимальну ціну оренди: ");
+                scanf("%f", &desiredRentPrice);
