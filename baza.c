@@ -9,6 +9,15 @@ typedef struct {
     float rentPrice;
 } Apartment;
 
+// Структура, яка представляє замовлення
+typedef struct {
+    int apartmentIndex;
+    char city[50];
+    int roomCount;
+    int floor;
+    float maxRentPrice;
+} Order;
+
 // Функція для створення нової квартири
 Apartment createApartment(int roomCount, int floor, float rentPrice) {
     Apartment apt;
@@ -20,6 +29,21 @@ Apartment createApartment(int roomCount, int floor, float rentPrice) {
 // Функція для виведення інформації про квартиру
 void printApartment(Apartment apt) {
     printf("( %d поверх, %d кімнати, ціна %.2f грн/міс )\n", apt.floor, apt.roomCount, apt.rentPrice);
+}
+
+// Функція для виведення інформації про замовлення
+void printOrder(Order order, Apartment *apartments, int numOfApartments) {
+    printf("Місто: %s\n", order.city);
+    printf("Кількість кімнат: %d\n", order.roomCount);
+    printf("Поверх: %d\n", order.floor);
+    printf("Максимальна ціна оренди: %.2f грн\n", order.maxRentPrice);
+
+    if (order.apartmentIndex >= 0 && order.apartmentIndex < numOfApartments) {
+        printf("Вибрана квартира:\n");
+        printApartment(apartments[order.apartmentIndex]);
+    } else {
+        printf("Квартира не знайдена\n");
+    }
 }
 
 int main() {
