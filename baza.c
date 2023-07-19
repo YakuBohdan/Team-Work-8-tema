@@ -51,7 +51,7 @@ int main() {
     Apartment kyivApartments[] = {
         createApartment(1, 1, 12000.0),
         createApartment(2, 1, 14500.0),
-        createApartment(3, 1, 1800.0),
+        createApartment(3, 1, 18000.0),
         createApartment(1, 2, 13000.0),
         createApartment(2, 2, 15000.0),
         createApartment(3, 2, 19000.0),
@@ -64,7 +64,7 @@ int main() {
     Apartment lvivApartments[] = {
         createApartment(1, 1, 12000.0),
         createApartment(2, 1, 14500.0),
-        createApartment(3, 1, 1800.0),
+        createApartment(3, 1, 18000.0),
         createApartment(1, 2, 13000.0),
         createApartment(2, 2, 15000.0),
         createApartment(3, 2, 19000.0),
@@ -80,7 +80,7 @@ int main() {
     Apartment odesaApartments[] = {
         createApartment(1, 1, 12000.0),
         createApartment(2, 1, 14500.0),
-        createApartment(3, 1, 1800.0),
+        createApartment(3, 1, 18000.0),
         createApartment(1, 2, 13000.0),
         createApartment(2, 2, 15000.0),
         createApartment(3, 2, 19000.0),
@@ -96,47 +96,121 @@ int main() {
     };
     int numOfOdesaApartments = sizeof(odesaApartments) / sizeof(odesaApartments[0]);
 
+    // Замовлення
+    Order currentOrder;
+    Order orderHistory[100];
+    int numOfOrders = 0;
+    
     // Вибірка квартир за критеріями
     int desiredRoomCount;
     int desiredFloor;
     float desiredRentPrice;
 
-    printf("Введіть бажану кількість кімнат: ");
-    scanf("%d", &desiredRoomCount);
+    // Користувацьке меню
+    int choice;
+    do {
+        printf("\n-------------------------\n");
+        printf("Меню:\n");
+        printf("1. Зробити нове замовлення\n");
+        printf("2. Переглянути поточне замовлення\n");
+        printf("3. Переглянути історію замовлень\n");
+        printf("0. Вийти з програми\n");
+        printf("Ваш вибір: ");
+        scanf("%d", &choice);
 
-    printf("Введіть бажаний поверх: ");
-    scanf("%d", &desiredFloor);
+        switch (choice) {
+            case 1:
+                // Введення критеріїв замовлення
+                printf("Введіть бажану кількість кімнат: ");
+                scanf("%d", &desiredRoomCount);
 
-    printf("Введіть максимальну ціну оренди: ");
-    scanf("%f", &desiredRentPrice);
+                printf("Введіть бажаний поверх: ");
+                scanf("%d", &desiredFloor);
 
-    // Пошук та виведення квартир, що задовольняють вказані критерії
-    printf("Результати пошуку:\n");
-    printf("Квартири в Києві:\n");
-    for (int i = 0; i < numOfKyivvApartments; i++) {
-        if (kyivvApartments[i].roomCount == desiredRoomCount &&
-            kyivApartments[i].floor == desiredFloor &&
-            kyivApartments[i].rentPrice <= desiredRentPrice) {
-            printApartment(kievApartments[i]);
+                printf("Введіть максимальну ціну оренди: ");
+                scanf("%f", &desiredRentPrice);
+                // Пошук та виведення квартир, що задовольняють вказані критерії
+                printf("Результати пошуку:\n");
+                printf("Квартири в Києві:\n");
+                for (int i = 0; i < numOfKyivApartments; i++) {
+                    if (kyivApartments[i].roomCount == desiredRoomCount &&
+                        kyivApartments[i].floor == desiredFloor &&
+                        kyivApartments[i].rentPrice <= desiredRentPrice) {
+                        printApartment(kyivApartments[i]);
+                    }
+                }
+
+                printf("Квартири у Львові:\n");
+                for (int i = 0; i < numOfLvivApartments; i++) {
+                    if (lvivApartments[i].roomCount == desiredRoomCount &&
+                        lvivApartments[i].floor == desiredFloor &&
+                        lvivApartments[i].rentPrice <= desiredRentPrice) {
+                        printApartment(lvivApartments[i]);
+                    }
+                }
+
+                printf("Квартири в Одесі:\n");
+                for (int i = 0; i < numOfOdesaApartments; i++) {
+                    if (odesaApartments[i].roomCount == desiredRoomCount &&
+                        odesaApartments[i].floor == desiredFloor &&
+                        odesaApartments[i].rentPrice <= desiredRentPrice) {
+                        printApartment(odesaApartments[i]);
+                    }
+                }
+
+  // Вибір квартири для замовлення
+                printf("\nВведіть індекс квартири для замовлення (або -1 для скасування): ");
+                scanf("%d", &currentOrder.apartmentIndex);
+
+                if (currentOrder.apartmentIndex >= 0 && currentOrder.apartmentIndex < numOfKyivApartments) {
+                    // Збереження деталей замовлення
+                    printf("Введіть місто для замовлення: ");
+                    scanf("%s", currentOrder.city);
+                    currentOrder.roomCount = desiredRoomCount;
+                    currentOrder.floor = desiredFloor;
+                    currentOrder.maxRentPrice = desiredRentPrice;
+
+                    // Додавання замовлення до історії
+                    orderHistory[numOfOrders] = currentOrder;
+                    numOfOrders++;
+
+                    printf("Замовлення розміщено.\n");
+                } else {
+                    printf("Замовлення скасовано.\n");
+                }
+
+                break;
+        case 2:
+                // Перегляд поточного замовлення
+                if (currentOrder.apartmentIndex >= 0 && currentOrder.apartmentIndex < numOfKyivApartments) {
+                    printf("Поточне замовлення:\n");
+                    printOrder(currentOrder, kyivApartments, numOfKyivApartments);
+                } else {
+                    printf("Немає поточного замовлення.\n");
+                }
+
+                break;
+            case 3:
+                // Перегляд історії замовлень
+                if (numOfOrders > 0) {
+                    printf("Історія замовлень:\n");
+                    for (int i = 0; i < numOfOrders; i++) {
+                        printf("\nЗамовлення %d:\n", i + 1);
+                        printOrder(orderHistory[i], kyivApartments, numOfKyivApartments);
+                    }
+                } else {
+                    printf("Історія замовлень порожня.\n");
+                }
+
+                break;
+            case 0:
+                printf("Дякуємо за використання програми. До побачення!\n");
+                break;
+            default:
+                printf("Невірний вибір. Спробуйте ще раз.\n");
+                break;
         }
-    }
-    printf("Квартири у Львові:\n");
-    for (int i = 0; i < numOfLvivApartments; i++) {
-        if (lvivApartments[i].roomCount == desiredRoomCount &&
-            lvivApartments[i].floor == desiredFloor &&
-            lvivApartments[i].rentPrice <= desiredRentPrice) {
-            printApartment(lvivApartments[i]);
-        }
-    }
-
-    printf("Квартири в Одесі:\n");
-    for (int i = 0; i < numOfOdesaApartments; i++) {
-        if (odesaApartments[i].roomCount == desiredRoomCount &&
-            odesaApartments[i].floor == desiredFloor &&
-            odesaApartments[i].rentPrice <= desiredRentPrice) {
-            printApartment(odesaApartments[i]);
-        }
-    }
+    } while (choice != 0);
 
     return 0;
-}
+}                
