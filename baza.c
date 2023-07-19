@@ -51,7 +51,7 @@ int main() {
     Apartment kyivApartments[] = {
         createApartment(1, 1, 12000.0),
         createApartment(2, 1, 14500.0),
-        createApartment(3, 1, 1800.0),
+        createApartment(3, 1, 18000.0),
         createApartment(1, 2, 13000.0),
         createApartment(2, 2, 15000.0),
         createApartment(3, 2, 19000.0),
@@ -64,7 +64,7 @@ int main() {
     Apartment lvivApartments[] = {
         createApartment(1, 1, 12000.0),
         createApartment(2, 1, 14500.0),
-        createApartment(3, 1, 1800.0),
+        createApartment(3, 1, 18000.0),
         createApartment(1, 2, 13000.0),
         createApartment(2, 2, 15000.0),
         createApartment(3, 2, 19000.0),
@@ -80,7 +80,7 @@ int main() {
     Apartment odesaApartments[] = {
         createApartment(1, 1, 12000.0),
         createApartment(2, 1, 14500.0),
-        createApartment(3, 1, 1800.0),
+        createApartment(3, 1, 18000.0),
         createApartment(1, 2, 13000.0),
         createApartment(2, 2, 15000.0),
         createApartment(3, 2, 19000.0),
