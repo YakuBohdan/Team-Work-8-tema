@@ -150,10 +150,10 @@ int main() {
                 }
 
                 printf("Квартири в Одесі:\n");
-                for (int i = 0; i < numOfOdessaApartments; i++) {
-                    if (odessaApartments[i].roomCount == desiredRoomCount &&
-                        odessaApartments[i].floor == desiredFloor &&
-                        odessaApartments[i].rentPrice <= desiredRentPrice) {
+                for (int i = 0; i < numOfOdesaApartments; i++) {
+                    if (odesaApartments[i].roomCount == desiredRoomCount &&
+                        odesaApartments[i].floor == desiredFloor &&
+                        odesaApartments[i].rentPrice <= desiredRentPrice) {
                         printApartment(odessaApartments[i]);
                     }
                 }
