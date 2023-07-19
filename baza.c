@@ -132,10 +132,10 @@ int main() {
                 // Пошук та виведення квартир, що задовольняють вказані критерії
                 printf("Результати пошуку:\n");
                 printf("Квартири в Києві:\n");
-                for (int i = 0; i < numOfKievApartments; i++) {
-                    if (kievApartments[i].roomCount == desiredRoomCount &&
-                        kievApartments[i].floor == desiredFloor &&
-                        kievApartments[i].rentPrice <= desiredRentPrice) {
+                for (int i = 0; i < numOfKyivApartments; i++) {
+                    if (kyivApartments[i].roomCount == desiredRoomCount &&
+                        kyivApartments[i].floor == desiredFloor &&
+                        kyivApartments[i].rentPrice <= desiredRentPrice) {
                         printApartment(kievApartments[i]);
                     }
                 }
@@ -182,9 +182,9 @@ int main() {
                 break;
         case 2:
                 // Перегляд поточного замовлення
-                if (currentOrder.apartmentIndex >= 0 && currentOrder.apartmentIndex < numOfKievApartments) {
+                if (currentOrder.apartmentIndex >= 0 && currentOrder.apartmentIndex < numOfKyivApartments) {
                     printf("Поточне замовлення:\n");
-                    printOrder(currentOrder, kievApartments, numOfKievApartments);
+                    printOrder(currentOrder, kyivApartments, numOfKyivApartments);
                 } else {
                     printf("Немає поточного замовлення.\n");
                 }
@@ -196,7 +196,7 @@ int main() {
                     printf("Історія замовлень:\n");
                     for (int i = 0; i < numOfOrders; i++) {
                         printf("\nЗамовлення %d:\n", i + 1);
-                        printOrder(orderHistory[i], kievApartments, numOfKievApartments);
+                        printOrder(orderHistory[i], kyivApartments, numOfKyivApartments);
                     }
                 } else {
                     printf("Історія замовлень порожня.\n");
