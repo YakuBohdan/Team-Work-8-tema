@@ -9,6 +9,15 @@ typedef struct {
     float rentPrice;
 } Apartment;
 
+// Структура, яка представляє замовлення
+typedef struct {
+    int apartmentIndex;
+    char city[50];
+    int roomCount;
+    int floor;
+    float maxRentPrice;
+} Order;
+
 // Функція для створення нової квартири
 Apartment createApartment(int roomCount, int floor, float rentPrice) {
     Apartment apt;
