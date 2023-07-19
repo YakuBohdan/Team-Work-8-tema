@@ -136,7 +136,7 @@ int main() {
                     if (kyivApartments[i].roomCount == desiredRoomCount &&
                         kyivApartments[i].floor == desiredFloor &&
                         kyivApartments[i].rentPrice <= desiredRentPrice) {
-                        printApartment(kievApartments[i]);
+                        printApartment(kyivApartments[i]);
                     }
                 }
 
@@ -162,7 +162,7 @@ int main() {
                 printf("\nВведіть індекс квартири для замовлення (або -1 для скасування): ");
                 scanf("%d", &currentOrder.apartmentIndex);
 
-                if (currentOrder.apartmentIndex >= 0 && currentOrder.apartmentIndex < numOfKievApartments) {
+                if (currentOrder.apartmentIndex >= 0 && currentOrder.apartmentIndex < numOfKyivApartments) {
                     // Збереження деталей замовлення
                     printf("Введіть місто для замовлення: ");
                     scanf("%s", currentOrder.city);
