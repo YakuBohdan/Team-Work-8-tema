@@ -154,7 +154,7 @@ int main() {
                     if (odesaApartments[i].roomCount == desiredRoomCount &&
                         odesaApartments[i].floor == desiredFloor &&
                         odesaApartments[i].rentPrice <= desiredRentPrice) {
-                        printApartment(odessaApartments[i]);
+                        printApartment(odesaApartments[i]);
                     }
                 }
 
